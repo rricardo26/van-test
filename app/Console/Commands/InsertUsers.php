@@ -46,7 +46,7 @@ class InsertUsers extends Command
             $response = $client->get('users');
             $data = $response->getBody()->getContents();
             $this->userRepositoryInterface->insertAll(json_decode($data, true));
-            Log::info('Insert Succesfully');
+            Log::info('Insert Users Succesfully');
         } catch (\Exception $ex) {
             Log::error($ex);
         }

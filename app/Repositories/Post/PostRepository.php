@@ -11,4 +11,9 @@ class PostRepository implements PostRepositoryInterface
         Post::insert($data);
         return true;
     }
+
+    public function getRandom() : Post
+    {
+        return Post::inRandomOrder()->first();
+    }
 }

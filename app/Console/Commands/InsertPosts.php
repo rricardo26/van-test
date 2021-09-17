@@ -47,7 +47,7 @@ class InsertPosts extends Command
             $response = $client->get('posts');
             $data = $response->getBody()->getContents();
             $this->postRepositoryInterface->insertAll(json_decode($data, true));
-            Log::info('Insert Succesfully');
+            Log::info('Insert Posts Succesfully');
         } catch (\Exception $ex) {
             Log::error($ex);
         }

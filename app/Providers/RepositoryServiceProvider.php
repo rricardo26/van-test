@@ -20,6 +20,14 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->when(\App\Console\Commands\InsertPosts::class)
             ->needs(\App\Repositories\Post\PostRepositoryInterface::class)
             ->give(\App\Repositories\Post\PostRepository::class);
+
+        $this->app->when(\App\Console\Commands\InsertRandomComment::class)
+            ->needs(\App\Repositories\Post\PostRepositoryInterface::class)
+            ->give(\App\Repositories\Post\PostRepository::class);
+
+        $this->app->when(\App\Console\Commands\InsertRandomComment::class)
+            ->needs(\App\Repositories\Comment\CommentRepositoryInterface::class)
+            ->give(\App\Repositories\Comment\CommentRepository::class);
     }
 
     /**
