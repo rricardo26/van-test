@@ -16,6 +16,10 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->when(\App\Console\Commands\InsertUsers::class)
             ->needs(\App\Repositories\User\UserRepositoryInterface::class)
             ->give(\App\Repositories\User\UserRepository::class);
+
+        $this->app->when(\App\Console\Commands\InsertPosts::class)
+            ->needs(\App\Repositories\Post\PostRepositoryInterface::class)
+            ->give(\App\Repositories\Post\PostRepository::class);
     }
 
     /**
