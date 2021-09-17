@@ -47,10 +47,11 @@ class InsertRandomComment extends Command
     {
         try {
             $post = $this->postRepositoryInterface->getRandom();
+            $faker = \Faker\Factory::create();
             $comment = [
-                'name' => 'J',
-                'email' => 'J',
-                'body' => 'J',
+                'name' => $faker->firstname,
+                'email' => $faker->unique()->safeEmail,
+                'body' => $faker->text(),
                 'postId' => $post->id
             ];
             $this->commentRepositoryInterface->insert($comment);
