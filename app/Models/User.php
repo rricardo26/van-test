@@ -41,4 +41,9 @@ class User extends Authenticatable
         'address' => 'array',
         'company' => 'array'
     ];
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'userId');
+    }
 }
